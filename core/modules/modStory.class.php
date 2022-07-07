@@ -242,8 +242,8 @@ class modStory extends DolibarrModules
 			//  0 => array(
 			//      'label' => 'MyJob label',
 			//      'jobtype' => 'method',
-			//      'class' => '/story/class/myobject.class.php',
-			//      'objectname' => 'MyObject',
+			//      'class' => '/story/class/story.class.php',
+			//      'objectname' => 'Story',
 			//      'method' => 'doScheduledJob',
 			//      'parameters' => '',
 			//      'comment' => 'Comment',
@@ -266,18 +266,18 @@ class modStory extends DolibarrModules
 		/* BEGIN MODULEBUILDER PERMISSIONS */
 		$this->rights[$r][0] = $this->numero . sprintf("%02d", $r + 1); // Permission id (must not be already used)
 		$this->rights[$r][1] = 'Read objects of Story'; // Permission label
-		$this->rights[$r][4] = 'myobject';
-		$this->rights[$r][5] = 'read'; // In php code, permission will be checked by test if ($user->rights->story->myobject->read)
+		$this->rights[$r][4] = 'story';
+		$this->rights[$r][5] = 'read'; // In php code, permission will be checked by test if ($user->rights->story->story->read)
 		$r++;
 		$this->rights[$r][0] = $this->numero . sprintf("%02d", $r + 1); // Permission id (must not be already used)
 		$this->rights[$r][1] = 'Create/Update objects of Story'; // Permission label
-		$this->rights[$r][4] = 'myobject';
-		$this->rights[$r][5] = 'write'; // In php code, permission will be checked by test if ($user->rights->story->myobject->write)
+		$this->rights[$r][4] = 'story';
+		$this->rights[$r][5] = 'write'; // In php code, permission will be checked by test if ($user->rights->story->story->write)
 		$r++;
 		$this->rights[$r][0] = $this->numero . sprintf("%02d", $r + 1); // Permission id (must not be already used)
 		$this->rights[$r][1] = 'Delete objects of Story'; // Permission label
-		$this->rights[$r][4] = 'myobject';
-		$this->rights[$r][5] = 'delete'; // In php code, permission will be checked by test if ($user->rights->story->myobject->delete)
+		$this->rights[$r][4] = 'story';
+		$this->rights[$r][5] = 'delete'; // In php code, permission will be checked by test if ($user->rights->story->story->delete)
 		$r++;
 		/* END MODULEBUILDER PERMISSIONS */
 
@@ -297,106 +297,149 @@ class modStory extends DolibarrModules
 			'langs'=>'story@story', // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
 			'position'=>1000 + $r,
 			'enabled'=>'$conf->story->enabled', // Define condition to show or hide menu entry. Use '$conf->story->enabled' if entry must be visible if module is enabled.
-			'perms'=>'1', // Use 'perms'=>'$user->rights->story->myobject->read' if you want your menu with a permission rules
+			'perms'=>'1', // Use 'perms'=>'$user->rights->story->story->read' if you want your menu with a permission rules
 			'target'=>'',
 			'user'=>2, // 0=Menu for internal users, 1=external users, 2=both
 		);
 		/* END MODULEBUILDER TOPMENU */
-		/* BEGIN MODULEBUILDER LEFTMENU MYOBJECT
+		/* BEGIN MODULEBUILDER LEFTMENU STORY
 		$this->menu[$r++]=array(
 			'fk_menu'=>'fk_mainmenu=story',      // '' if this is a top menu. For left menu, use 'fk_mainmenu=xxx' or 'fk_mainmenu=xxx,fk_leftmenu=yyy' where xxx is mainmenucode and yyy is a leftmenucode
 			'type'=>'left',                          // This is a Top menu entry
-			'titre'=>'MyObject',
+			'titre'=>'Story',
 			'prefix' => img_picto('', $this->picto, 'class="paddingright pictofixedwidth valignmiddle"'),
 			'mainmenu'=>'story',
-			'leftmenu'=>'myobject',
+			'leftmenu'=>'story',
 			'url'=>'/story/storyindex.php',
 			'langs'=>'story@story',	        // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
 			'position'=>1000+$r,
 			'enabled'=>'$conf->story->enabled',  // Define condition to show or hide menu entry. Use '$conf->story->enabled' if entry must be visible if module is enabled.
-			'perms'=>'$user->rights->story->myobject->read',			                // Use 'perms'=>'$user->rights->story->level1->level2' if you want your menu with a permission rules
+			'perms'=>'$user->rights->story->story->read',			                // Use 'perms'=>'$user->rights->story->level1->level2' if you want your menu with a permission rules
 			'target'=>'',
 			'user'=>2,				                // 0=Menu for internal users, 1=external users, 2=both
 		);
 		$this->menu[$r++]=array(
-			'fk_menu'=>'fk_mainmenu=story,fk_leftmenu=myobject',	    // '' if this is a top menu. For left menu, use 'fk_mainmenu=xxx' or 'fk_mainmenu=xxx,fk_leftmenu=yyy' where xxx is mainmenucode and yyy is a leftmenucode
+			'fk_menu'=>'fk_mainmenu=story,fk_leftmenu=story',	    // '' if this is a top menu. For left menu, use 'fk_mainmenu=xxx' or 'fk_mainmenu=xxx,fk_leftmenu=yyy' where xxx is mainmenucode and yyy is a leftmenucode
 			'type'=>'left',			                // This is a Left menu entry
-			'titre'=>'List_MyObject',
+			'titre'=>'List_Story',
 			'mainmenu'=>'story',
-			'leftmenu'=>'story_myobject_list',
-			'url'=>'/story/myobject_list.php',
+			'leftmenu'=>'story_story_list',
+			'url'=>'/story/story_list.php',
 			'langs'=>'story@story',	        // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
 			'position'=>1000+$r,
 			'enabled'=>'$conf->story->enabled',  // Define condition to show or hide menu entry. Use '$conf->story->enabled' if entry must be visible if module is enabled. Use '$leftmenu==\'system\'' to show if leftmenu system is selected.
-			'perms'=>'$user->rights->story->myobject->read',			                // Use 'perms'=>'$user->rights->story->level1->level2' if you want your menu with a permission rules
+			'perms'=>'$user->rights->story->story->read',			                // Use 'perms'=>'$user->rights->story->level1->level2' if you want your menu with a permission rules
 			'target'=>'',
 			'user'=>2,				                // 0=Menu for internal users, 1=external users, 2=both
 		);
 		$this->menu[$r++]=array(
-			'fk_menu'=>'fk_mainmenu=story,fk_leftmenu=myobject',	    // '' if this is a top menu. For left menu, use 'fk_mainmenu=xxx' or 'fk_mainmenu=xxx,fk_leftmenu=yyy' where xxx is mainmenucode and yyy is a leftmenucode
+			'fk_menu'=>'fk_mainmenu=story,fk_leftmenu=story',	    // '' if this is a top menu. For left menu, use 'fk_mainmenu=xxx' or 'fk_mainmenu=xxx,fk_leftmenu=yyy' where xxx is mainmenucode and yyy is a leftmenucode
 			'type'=>'left',			                // This is a Left menu entry
-			'titre'=>'New_MyObject',
+			'titre'=>'New_Story',
 			'mainmenu'=>'story',
-			'leftmenu'=>'story_myobject_new',
-			'url'=>'/story/myobject_card.php?action=create',
+			'leftmenu'=>'story_story_new',
+			'url'=>'/story/story_card.php?action=create',
 			'langs'=>'story@story',	        // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
 			'position'=>1000+$r,
 			'enabled'=>'$conf->story->enabled',  // Define condition to show or hide menu entry. Use '$conf->story->enabled' if entry must be visible if module is enabled. Use '$leftmenu==\'system\'' to show if leftmenu system is selected.
-			'perms'=>'$user->rights->story->myobject->write',			                // Use 'perms'=>'$user->rights->story->level1->level2' if you want your menu with a permission rules
+			'perms'=>'$user->rights->story->story->write',			                // Use 'perms'=>'$user->rights->story->level1->level2' if you want your menu with a permission rules
 			'target'=>'',
 			'user'=>2,				                // 0=Menu for internal users, 1=external users, 2=both
 		);
-		END MODULEBUILDER LEFTMENU MYOBJECT */
+		*/
+
+        $this->menu[$r++]=array(
+            // '' if this is a top menu. For left menu, use 'fk_mainmenu=xxx' or 'fk_mainmenu=xxx,fk_leftmenu=yyy' where xxx is mainmenucode and yyy is a leftmenucode
+            'fk_menu'=>'fk_mainmenu=story',
+            // This is a Left menu entry
+            'type'=>'left',
+            'titre'=>'List Story',
+            'mainmenu'=>'story',
+            'leftmenu'=>'story_story',
+            'url'=>'/story/story_list.php',
+            // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
+            'langs'=>'story@story',
+            'position'=>1100+$r,
+            // Define condition to show or hide menu entry. Use '$conf->story->enabled' if entry must be visible if module is enabled. Use '$leftmenu==\'system\'' to show if leftmenu system is selected.
+            'enabled'=>'$conf->story->enabled',
+            // Use 'perms'=>'$user->rights->story->level1->level2' if you want your menu with a permission rules
+            'perms'=>'1',
+            'target'=>'',
+            // 0=Menu for internal users, 1=external users, 2=both
+            'user'=>2,
+        );
+        $this->menu[$r++]=array(
+            // '' if this is a top menu. For left menu, use 'fk_mainmenu=xxx' or 'fk_mainmenu=xxx,fk_leftmenu=yyy' where xxx is mainmenucode and yyy is a leftmenucode
+            'fk_menu'=>'fk_mainmenu=story,fk_leftmenu=story_story',
+            // This is a Left menu entry
+            'type'=>'left',
+            'titre'=>'New Story',
+            'mainmenu'=>'story',
+            'leftmenu'=>'story_story',
+            'url'=>'/story/story_card.php?action=create',
+            // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
+            'langs'=>'story@story',
+            'position'=>1100+$r,
+            // Define condition to show or hide menu entry. Use '$conf->story->enabled' if entry must be visible if module is enabled. Use '$leftmenu==\'system\'' to show if leftmenu system is selected.
+            'enabled'=>'$conf->story->enabled',
+            // Use 'perms'=>'$user->rights->story->level1->level2' if you want your menu with a permission rules
+            'perms'=>'1',
+            'target'=>'',
+            // 0=Menu for internal users, 1=external users, 2=both
+            'user'=>2
+        );
+
+		/* END MODULEBUILDER LEFTMENU STORY */
 		// Exports profiles provided by this module
 		$r = 1;
-		/* BEGIN MODULEBUILDER EXPORT MYOBJECT */
+		/* BEGIN MODULEBUILDER EXPORT STORY */
 		/*
 		$langs->load("story@story");
 		$this->export_code[$r]=$this->rights_class.'_'.$r;
-		$this->export_label[$r]='MyObjectLines';	// Translation key (used only if key ExportDataset_xxx_z not found)
-		$this->export_icon[$r]='myobject@story';
+		$this->export_label[$r]='StoryLines';	// Translation key (used only if key ExportDataset_xxx_z not found)
+		$this->export_icon[$r]='story@story';
 		// Define $this->export_fields_array, $this->export_TypeFields_array and $this->export_entities_array
-		$keyforclass = 'MyObject'; $keyforclassfile='/story/class/myobject.class.php'; $keyforelement='myobject@story';
+		$keyforclass = 'Story'; $keyforclassfile='/story/class/story.class.php'; $keyforelement='story@story';
 		include DOL_DOCUMENT_ROOT.'/core/commonfieldsinexport.inc.php';
 		//$this->export_fields_array[$r]['t.fieldtoadd']='FieldToAdd'; $this->export_TypeFields_array[$r]['t.fieldtoadd']='Text';
 		//unset($this->export_fields_array[$r]['t.fieldtoremove']);
-		//$keyforclass = 'MyObjectLine'; $keyforclassfile='/story/class/myobject.class.php'; $keyforelement='myobjectline@story'; $keyforalias='tl';
+		//$keyforclass = 'StoryLine'; $keyforclassfile='/story/class/story.class.php'; $keyforelement='storyline@story'; $keyforalias='tl';
 		//include DOL_DOCUMENT_ROOT.'/core/commonfieldsinexport.inc.php';
-		$keyforselect='myobject'; $keyforaliasextra='extra'; $keyforelement='myobject@story';
+		$keyforselect='story'; $keyforaliasextra='extra'; $keyforelement='story@story';
 		include DOL_DOCUMENT_ROOT.'/core/extrafieldsinexport.inc.php';
-		//$keyforselect='myobjectline'; $keyforaliasextra='extraline'; $keyforelement='myobjectline@story';
+		//$keyforselect='storyline'; $keyforaliasextra='extraline'; $keyforelement='storyline@story';
 		//include DOL_DOCUMENT_ROOT.'/core/extrafieldsinexport.inc.php';
-		//$this->export_dependencies_array[$r] = array('myobjectline'=>array('tl.rowid','tl.ref')); // To force to activate one or several fields if we select some fields that need same (like to select a unique key if we ask a field of a child to avoid the DISTINCT to discard them, or for computed field than need several other fields)
+		//$this->export_dependencies_array[$r] = array('storyline'=>array('tl.rowid','tl.ref')); // To force to activate one or several fields if we select some fields that need same (like to select a unique key if we ask a field of a child to avoid the DISTINCT to discard them, or for computed field than need several other fields)
 		//$this->export_special_array[$r] = array('t.field'=>'...');
 		//$this->export_examplevalues_array[$r] = array('t.field'=>'Example');
 		//$this->export_help_array[$r] = array('t.field'=>'FieldDescHelp');
 		$this->export_sql_start[$r]='SELECT DISTINCT ';
-		$this->export_sql_end[$r]  =' FROM '.MAIN_DB_PREFIX.'myobject as t';
-		//$this->export_sql_end[$r]  =' LEFT JOIN '.MAIN_DB_PREFIX.'myobject_line as tl ON tl.fk_myobject = t.rowid';
+		$this->export_sql_end[$r]  =' FROM '.MAIN_DB_PREFIX.'story as t';
+		//$this->export_sql_end[$r]  =' LEFT JOIN '.MAIN_DB_PREFIX.'story_line as tl ON tl.fk_story = t.rowid';
 		$this->export_sql_end[$r] .=' WHERE 1 = 1';
-		$this->export_sql_end[$r] .=' AND t.entity IN ('.getEntity('myobject').')';
+		$this->export_sql_end[$r] .=' AND t.entity IN ('.getEntity('story').')';
 		$r++; */
-		/* END MODULEBUILDER EXPORT MYOBJECT */
+		/* END MODULEBUILDER EXPORT STORY */
 
 		// Imports profiles provided by this module
 		$r = 1;
-		/* BEGIN MODULEBUILDER IMPORT MYOBJECT */
+		/* BEGIN MODULEBUILDER IMPORT STORY */
 		/*
 		 $langs->load("story@story");
 		 $this->export_code[$r]=$this->rights_class.'_'.$r;
-		 $this->export_label[$r]='MyObjectLines';	// Translation key (used only if key ExportDataset_xxx_z not found)
-		 $this->export_icon[$r]='myobject@story';
-		 $keyforclass = 'MyObject'; $keyforclassfile='/story/class/myobject.class.php'; $keyforelement='myobject@story';
+		 $this->export_label[$r]='StoryLines';	// Translation key (used only if key ExportDataset_xxx_z not found)
+		 $this->export_icon[$r]='story@story';
+		 $keyforclass = 'Story'; $keyforclassfile='/story/class/story.class.php'; $keyforelement='story@story';
 		 include DOL_DOCUMENT_ROOT.'/core/commonfieldsinexport.inc.php';
-		 $keyforselect='myobject'; $keyforaliasextra='extra'; $keyforelement='myobject@story';
+		 $keyforselect='story'; $keyforaliasextra='extra'; $keyforelement='story@story';
 		 include DOL_DOCUMENT_ROOT.'/core/extrafieldsinexport.inc.php';
 		 //$this->export_dependencies_array[$r]=array('mysubobject'=>'ts.rowid', 't.myfield'=>array('t.myfield2','t.myfield3')); // To force to activate one or several fields if we select some fields that need same (like to select a unique key if we ask a field of a child to avoid the DISTINCT to discard them, or for computed field than need several other fields)
 		 $this->export_sql_start[$r]='SELECT DISTINCT ';
-		 $this->export_sql_end[$r]  =' FROM '.MAIN_DB_PREFIX.'myobject as t';
+		 $this->export_sql_end[$r]  =' FROM '.MAIN_DB_PREFIX.'story as t';
 		 $this->export_sql_end[$r] .=' WHERE 1 = 1';
-		 $this->export_sql_end[$r] .=' AND t.entity IN ('.getEntity('myobject').')';
+		 $this->export_sql_end[$r] .=' AND t.entity IN ('.getEntity('story').')';
 		 $r++; */
-		/* END MODULEBUILDER IMPORT MYOBJECT */
+		/* END MODULEBUILDER IMPORT STORY */
 	}
 
 	/**
@@ -433,16 +476,16 @@ class modStory extends DolibarrModules
 		// Document templates
 		$moduledir = 'story';
 		$myTmpObjects = array();
-		$myTmpObjects['MyObject'] = array('includerefgeneration'=>0, 'includedocgeneration'=>0);
+		$myTmpObjects['Story'] = array('includerefgeneration'=>0, 'includedocgeneration'=>0);
 
 		foreach ($myTmpObjects as $myTmpObjectKey => $myTmpObjectArray) {
-			if ($myTmpObjectKey == 'MyObject') {
+			if ($myTmpObjectKey == 'Story') {
 				continue;
 			}
 			if ($myTmpObjectArray['includerefgeneration']) {
-				$src = DOL_DOCUMENT_ROOT.'/install/doctemplates/story/template_myobjects.odt';
+				$src = DOL_DOCUMENT_ROOT.'/install/doctemplates/story/template_storys.odt';
 				$dirodt = DOL_DATA_ROOT.'/doctemplates/story';
-				$dest = $dirodt.'/template_myobjects.odt';
+				$dest = $dirodt.'/template_storys.odt';
 
 				if (file_exists($src) && !file_exists($dest)) {
 					require_once DOL_DOCUMENT_ROOT.'/core/lib/files.lib.php';

@@ -15,7 +15,6 @@
 
 
 -- BEGIN MODULEBUILDER INDEXES
-ALTER TABLE llx_story_story ADD INDEX idx_story_story_storyid (storyid);
 -- END MODULEBUILDER INDEXES
 
 --ALTER TABLE llx_story_story ADD UNIQUE INDEX uk_story_story_fieldxy(fieldx, fieldy);

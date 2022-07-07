@@ -100,17 +100,17 @@ class Story extends CommonObject
 	 * @var array  Array with all fields and their property. Do not use it as a static var. It may be modified by constructor.
 	 */
 	public $fields=array(
-		'storyid' => array('type'=>'integer', 'label'=>'TechnicalID', 'enabled'=>'1', 'position'=>1, 'notnull'=>1, 'visible'=>0, 'noteditable'=>'1', 'index'=>1, 'css'=>'left', 'comment'=>"Id"),
 		'description' => array('type'=>'text', 'label'=>'Description', 'enabled'=>'1', 'position'=>60, 'notnull'=>0, 'visible'=>3,),
 		'jobrules' => array('type'=>'text', 'label'=>'Règles métiers', 'enabled'=>'1', 'position'=>60, 'notnull'=>0, 'visible'=>3,),
 		'accepttest' => array('type'=>'text', 'label'=>'Tests d’acceptances', 'enabled'=>'1', 'position'=>60, 'notnull'=>0, 'visible'=>3,),
 		'title' => array('type'=>'varchar(128)', 'label'=>'Titre', 'enabled'=>'1', 'position'=>20, 'notnull'=>1, 'visible'=>1, 'comment'=>"Titre de la story"),
+		'storyid' => array('type'=>'integer', 'label'=>'ID', 'enabled'=>'1', 'position'=>1, 'notnull'=>1, 'visible'=>0, 'noteditable'=>'1', 'default'=>'1', 'css'=>'left', 'comment'=>"id"),
 	);
-	public $storyid;
 	public $description;
 	public $jobrules;
 	public $accepttest;
 	public $title;
+	public $storyid;
 	// END MODULEBUILDER PROPERTIES
 
 
@@ -161,8 +161,8 @@ class Story extends CommonObject
 
 		$this->db = $db;
 
-		if (empty($conf->global->MAIN_SHOW_TECHNICAL_ID) && isset($this->fields['rowid'])) {
-			$this->fields['rowid']['visible'] = 0;
+		if (empty($conf->global->MAIN_SHOW_TECHNICAL_ID) && isset($this->fields['storyid'])) {
+			$this->fields['storyid']['visible'] = 0;
 		}
 		if (empty($conf->multicompany->enabled) && isset($this->fields['entity'])) {
 			$this->fields['entity']['enabled'] = 0;

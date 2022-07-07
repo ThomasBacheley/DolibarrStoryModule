@@ -353,7 +353,7 @@ class modStory extends DolibarrModules
             'fk_menu'=>'fk_mainmenu=story',
             // This is a Left menu entry
             'type'=>'left',
-            'titre'=>'List Story',
+            'titre'=>'Liste de Story',
             'mainmenu'=>'story',
             'leftmenu'=>'story_story',
             'url'=>'/story/story_list.php',
@@ -373,7 +373,7 @@ class modStory extends DolibarrModules
             'fk_menu'=>'fk_mainmenu=story,fk_leftmenu=story_story',
             // This is a Left menu entry
             'type'=>'left',
-            'titre'=>'New Story',
+            'titre'=>'Creer une Story',
             'mainmenu'=>'story',
             'leftmenu'=>'story_story',
             'url'=>'/story/story_card.php?action=create',

@@ -16,23 +16,9 @@
 
 CREATE TABLE llx_story_story(
 	-- BEGIN MODULEBUILDER FIELDS
-	rowid integer AUTO_INCREMENT PRIMARY KEY NOT NULL, 
-	ref varchar(128) NOT NULL, 
-	label varchar(255), 
-	amount double DEFAULT NULL, 
-	qty real, 
-	fk_soc integer, 
-	fk_project integer, 
+	storyid integer AUTO_INCREMENT PRIMARY KEY NOT NULL, 
+	title varchar(128) NOT NULL, 
 	description text, 
-	note_public text, 
-	note_private text, 
-	date_creation datetime NOT NULL, 
-	tms timestamp, 
-	fk_user_creat integer NOT NULL, 
-	fk_user_modif integer, 
-	last_main_doc varchar(255), 
-	import_key varchar(14), 
-	model_pdf varchar(255), 
-	status smallint NOT NULL
-	-- END MODULEBUILDER FIELDS
+	jobrules text,
+	accepttest text
 ) ENGINE=innodb;

@@ -16,15 +16,9 @@
 
 CREATE TABLE llx_story_story(
 	-- BEGIN MODULEBUILDER FIELDS
-	rowid INTEGER AUTO_INCREMENT PRIMARY KEY,
-	entity INTEGER DEFAULT 1 NOT NULL,
-	label VARCHAR(255),
-	qty INTEGER,
-	date_creation DATETIME NOT NULL,
-	tms TIMESTAMP,
-	fk_user_create INTEGER,
-	fk_user_modif INTEGER,
-	status INTEGER,
-	import_key VARCHAR(14)
-	-- END MODULEBUILDER FIELDS
+	storyid integer AUTO_INCREMENT PRIMARY KEY NOT NULL, 
+	title varchar(128) NOT NULL, 
+	description text, 
+	jobrules text,
+	accepttest text
 ) ENGINE=innodb;

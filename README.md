@@ -9,9 +9,8 @@ Module pour creer des Story , une Story est un élément comprenant 4 champs :
 - Règles métiers
 - Tests d’acceptances
 
-<!--
-![Screenshot story](img/screenshot_story.png?raw=true "Story"){imgmd}
--->
+![Screenshot story](img/table_story.png?raw=true "Story"){imgmd}
+
 ## Licenses
 
 ### Main code

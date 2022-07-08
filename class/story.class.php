@@ -101,20 +101,16 @@ class Story extends CommonObject
 	 */
 	public $fields=array(
 		'rowid' => array('type'=>'integer', 'label'=>'TechnicalID', 'enabled'=>'1', 'position'=>1, 'notnull'=>1, 'visible'=>0, 'noteditable'=>'1', 'index'=>1, 'css'=>'left', 'comment'=>"Id"),
-		'description' => array('type'=>'text', 'label'=>'Description', 'enabled'=>'1', 'position'=>60, 'notnull'=>0, 'visible'=>3,),
-		'fk_user_creat' => array('type'=>'integer:User:user/class/user.class.php', 'label'=>'UserAuthor', 'enabled'=>'1', 'position'=>510, 'notnull'=>1, 'visible'=>-2, 'foreignkey'=>'user.rowid',),
-		'fk_user_modif' => array('type'=>'integer:User:user/class/user.class.php', 'label'=>'UserModif', 'enabled'=>'1', 'position'=>511, 'notnull'=>-1, 'visible'=>-2,),
-		'status' => array('type'=>'smallint', 'label'=>'Status', 'enabled'=>'1', 'position'=>1000, 'notnull'=>1, 'visible'=>1, 'index'=>1, 'arrayofkeyval'=>array('0'=>'Brouillon', '1'=>'Valid&eacute;', '9'=>'Annul&eacute;'),),
+		'description' => array('type'=>'text', 'label'=>'Description', 'enabled'=>'1', 'position'=>60, 'notnull'=>0, 'visible'=>1,),
 		'title' => array('type'=>'varchar(128)', 'label'=>'Titre', 'enabled'=>'1', 'position'=>10, 'notnull'=>1, 'visible'=>1, 'index'=>2, 'searchall'=>1, 'css'=>'minwidth300', 'cssview'=>'wordbreak', 'help'=>"Titre de la Story",),
-		'jobrules' => array('type'=>'html', 'label'=>'Regles metiers', 'enabled'=>'1', 'position'=>62, 'notnull'=>0, 'visible'=>1,),
+		'jobrules' => array('type'=>'html', 'label'=>'Règles métiers', 'enabled'=>'1', 'position'=>61, 'notnull'=>0, 'visible'=>1, 'index'=>1,),
+		'accepttest' => array('type'=>'html', 'label'=>'Tests d’acceptances', 'enabled'=>'1', 'position'=>62, 'notnull'=>0, 'visible'=>1, 'index'=>1,),
 	);
 	public $rowid;
 	public $description;
-	public $fk_user_creat;
-	public $fk_user_modif;
-	public $status;
 	public $title;
 	public $jobrules;
+	public $accepttest;
 	// END MODULEBUILDER PROPERTIES
 
 

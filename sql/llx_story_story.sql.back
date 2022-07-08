@@ -13,15 +13,14 @@
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see https://www.gnu.org/licenses/.
 
+-- pour creer ma table
 
 CREATE TABLE llx_story_story(
 	-- BEGIN MODULEBUILDER FIELDS
 	rowid integer AUTO_INCREMENT PRIMARY KEY NOT NULL, 
 	description text, 
-	fk_user_creat integer NOT NULL, 
-	fk_user_modif integer, 
-	status smallint NOT NULL, 
 	title varchar(128) NOT NULL, 
-	jobrules text
+	jobrules text, 
+	accepttest text
 	-- END MODULEBUILDER FIELDS
 ) ENGINE=innodb;

@@ -19,8 +19,6 @@ CREATE TABLE llx_story_story(
 	rowid integer AUTO_INCREMENT PRIMARY KEY NOT NULL, 
 	ref varchar(128) NOT NULL, 
 	description text, 
-	fk_user_creat integer NOT NULL, 
-	fk_user_modif integer, 
 	title varchar(255) NOT NULL, 
 	jobrules text NOT NULL, 
 	accepttest text NOT NULL

@@ -101,13 +101,19 @@ class Story extends CommonObject
 	 */
 	public $fields=array(
 		'rowid' => array('type'=>'integer', 'label'=>'TechnicalID', 'enabled'=>'1', 'position'=>1, 'notnull'=>1, 'visible'=>0, 'noteditable'=>'1', 'index'=>1, 'css'=>'left', 'comment'=>"Id"),
-		'description' => array('type'=>'text', 'label'=>'Description', 'enabled'=>'1', 'position'=>60, 'notnull'=>0, 'visible'=>1,),
-		'title' => array('type'=>'varchar(128)', 'label'=>'Titre', 'enabled'=>'1', 'position'=>10, 'notnull'=>1, 'visible'=>1, 'index'=>2, 'searchall'=>1, 'css'=>'minwidth300', 'cssview'=>'wordbreak', 'help'=>"Titre de la Story",),
-		'jobrules' => array('type'=>'html', 'label'=>'Règles métiers', 'enabled'=>'1', 'position'=>61, 'notnull'=>0, 'visible'=>1, 'index'=>1,),
-		'accepttest' => array('type'=>'html', 'label'=>'Tests d’acceptances', 'enabled'=>'1', 'position'=>62, 'notnull'=>0, 'visible'=>1, 'index'=>1,),
+		'ref' => array('type'=>'varchar(128)', 'label'=>'Ref', 'enabled'=>'1', 'position'=>20, 'notnull'=>1, 'visible'=>1, 'index'=>1, 'searchall'=>1, 'showoncombobox'=>'1', 'comment'=>"Reference of object"),
+		'description' => array('type'=>'text', 'label'=>'Description', 'enabled'=>'1', 'position'=>60, 'notnull'=>0, 'visible'=>3,),
+		'fk_user_creat' => array('type'=>'integer:User:user/class/user.class.php', 'label'=>'UserAuthor', 'enabled'=>'1', 'position'=>510, 'notnull'=>1, 'visible'=>-2, 'foreignkey'=>'user.rowid',),
+		'fk_user_modif' => array('type'=>'integer:User:user/class/user.class.php', 'label'=>'UserModif', 'enabled'=>'1', 'position'=>511, 'notnull'=>-1, 'visible'=>-2,),
+		'title' => array('type'=>'varchar(255)', 'label'=>'Titre', 'enabled'=>'1', 'position'=>30, 'notnull'=>1, 'visible'=>1, 'searchall'=>1, 'css'=>'minwidth300', 'cssview'=>'wordbreak', 'help'=>"Titre de la Story",),
+		'jobrules' => array('type'=>'html', 'label'=>'Règles métiers', 'enabled'=>'1', 'position'=>35, 'notnull'=>1, 'visible'=>1, 'index'=>1,),
+		'accepttest' => array('type'=>'html', 'label'=>'Tests d’acceptances', 'enabled'=>'1', 'position'=>40, 'notnull'=>1, 'visible'=>1, 'index'=>1,),
 	);
 	public $rowid;
+	public $ref;
 	public $description;
+	public $fk_user_creat;
+	public $fk_user_modif;
 	public $title;
 	public $jobrules;
 	public $accepttest;

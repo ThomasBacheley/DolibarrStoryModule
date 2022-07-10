@@ -63,12 +63,12 @@ class modStory extends DolibarrModules
 		$this->name = preg_replace('/^mod/i', '', get_class($this));
 
 		// Module description, used if translation string 'ModuleStoryDesc' not found (Story is name of module).
-		$this->description = "Module pour creer des Story";
+		$this->description = "StoryDescription";
 		// Used only if file README.md and README-LL.md not found.
-		$this->descriptionlong = "Module pour creer des Story";
+		$this->descriptionlong = "StoryDescription";
 
 		// Author
-		$this->editor_name = 'Thomas Bacheley';
+		$this->editor_name = 'Editor name';
 		$this->editor_url = 'https://www.example.com';
 
 		// Possible values for version are: 'development', 'experimental', 'dolibarr', 'dolibarr_deprecated' or a version string like 'x.y.z'
@@ -293,7 +293,7 @@ class modStory extends DolibarrModules
 			'prefix' => img_picto('', $this->picto, 'class="paddingright pictofixedwidth valignmiddle"'),
 			'mainmenu'=>'story',
 			'leftmenu'=>'',
-			'url'=>'/story/storyindex.php',
+			'url'=>'/story/story_list.php',
 			'langs'=>'story@story', // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
 			'position'=>1000 + $r,
 			'enabled'=>'$conf->story->enabled', // Define condition to show or hide menu entry. Use '$conf->story->enabled' if entry must be visible if module is enabled.
@@ -347,8 +347,7 @@ class modStory extends DolibarrModules
 			'user'=>2,				                // 0=Menu for internal users, 1=external users, 2=both
 		);
 		*/
-		
-		//gestion de mon "menu" Ici ↓
+
         $this->menu[$r++]=array(
             // '' if this is a top menu. For left menu, use 'fk_mainmenu=xxx' or 'fk_mainmenu=xxx,fk_leftmenu=yyy' where xxx is mainmenucode and yyy is a leftmenucode
             'fk_menu'=>'fk_mainmenu=story',

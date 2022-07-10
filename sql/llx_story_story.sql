@@ -17,8 +17,8 @@
 CREATE TABLE llx_story_story(
 	-- BEGIN MODULEBUILDER FIELDS
 	rowid integer AUTO_INCREMENT PRIMARY KEY NOT NULL, 
-	ref varchar(128) NOT NULL, 
-	description text, 
+	ref varchar(128) DEFAULT '(PROV)' NOT NULL, 
+	description text NOT NULL, 
 	title varchar(255) NOT NULL, 
 	jobrules text NOT NULL, 
 	accepttest text NOT NULL

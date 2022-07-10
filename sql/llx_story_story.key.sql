@@ -17,8 +17,6 @@
 -- BEGIN MODULEBUILDER INDEXES
 ALTER TABLE llx_story_story ADD INDEX idx_story_story_rowid (rowid);
 ALTER TABLE llx_story_story ADD INDEX idx_story_story_ref (ref);
-ALTER TABLE llx_story_story ADD INDEX idx_story_story_jobrules (jobrules);
-ALTER TABLE llx_story_story ADD INDEX idx_story_story_accepttest (accepttest);
 -- END MODULEBUILDER INDEXES
 
 --ALTER TABLE llx_story_story ADD UNIQUE INDEX uk_story_story_fieldxy(fieldx, fieldy);

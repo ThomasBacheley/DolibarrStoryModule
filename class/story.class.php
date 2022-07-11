@@ -105,7 +105,7 @@ class Story extends CommonObject
 		'description' => array('type'=>'text', 'label'=>'Description', 'enabled'=>'1', 'position'=>40, 'notnull'=>1, 'visible'=>1,),
 		'title' => array('type'=>'varchar(255)', 'label'=>'Titre', 'enabled'=>'1', 'position'=>25, 'notnull'=>1, 'visible'=>1, 'searchall'=>1, 'css'=>'minwidth300', 'cssview'=>'wordbreak', 'help'=>"Titre de la Story",),
 		'jobrules' => array('type'=>'html', 'label'=>'Règles métiers', 'enabled'=>'1', 'position'=>30, 'notnull'=>1, 'visible'=>1,),
-		'accepttest' => array('type'=>'html', 'label'=>'Règles métiers', 'enabled'=>'1', 'position'=>35, 'notnull'=>1, 'visible'=>1,),
+		'accepttest' => array('type'=>'html', 'label'=>'Tests d’acceptances', 'enabled'=>'1', 'position'=>35, 'notnull'=>1, 'visible'=>1,),
 	);
 	public $rowid;
 	public $ref;

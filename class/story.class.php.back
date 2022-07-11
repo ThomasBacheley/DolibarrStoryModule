@@ -101,18 +101,16 @@ class Story extends CommonObject
 	 */
 	public $fields=array(
 		'rowid' => array('type'=>'integer', 'label'=>'TechnicalID', 'enabled'=>'1', 'position'=>1, 'notnull'=>1, 'visible'=>0, 'noteditable'=>'1', 'index'=>1, 'css'=>'left', 'comment'=>"Id"),
-		'ref' => array('type'=>'varchar(128)', 'label'=>'Ref', 'enabled'=>'1', 'position'=>20, 'notnull'=>1, 'visible'=>3, 'noteditable'=>'1', 'default'=>'(PROV)', 'index'=>1, 'comment'=>"Reference of object"),
+		'ref' => array('type'=>'varchar(128)', 'label'=>'Ref', 'enabled'=>'1', 'position'=>20, 'notnull'=>1, 'visible'=>4, 'noteditable'=>'1', 'default'=>'(PROV)', 'index'=>1, 'comment'=>"Reference of object"),
 		'description' => array('type'=>'text', 'label'=>'Description', 'enabled'=>'1', 'position'=>40, 'notnull'=>1, 'visible'=>1,),
 		'title' => array('type'=>'varchar(255)', 'label'=>'Titre', 'enabled'=>'1', 'position'=>25, 'notnull'=>1, 'visible'=>1, 'searchall'=>1, 'css'=>'minwidth300', 'cssview'=>'wordbreak', 'help'=>"Titre de la Story",),
 		'jobrules' => array('type'=>'html', 'label'=>'Règles métiers', 'enabled'=>'1', 'position'=>30, 'notnull'=>1, 'visible'=>1,),
-		'accepttest' => array('type'=>'html', 'label'=>'Règles métiers', 'enabled'=>'1', 'position'=>35, 'notnull'=>1, 'visible'=>1,),
 	);
 	public $rowid;
 	public $ref;
 	public $description;
 	public $title;
 	public $jobrules;
-	public $accepttest;
 	// END MODULEBUILDER PROPERTIES
 
 

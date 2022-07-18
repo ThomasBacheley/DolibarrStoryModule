@@ -1,4 +1,4 @@
--- Copyright (C) 2022 SuperAdmin
+-- Copyright (C) ---Put here your own copyright and developer email---
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -17,6 +17,7 @@
 -- BEGIN MODULEBUILDER INDEXES
 ALTER TABLE llx_story_story ADD INDEX idx_story_story_rowid (rowid);
 ALTER TABLE llx_story_story ADD INDEX idx_story_story_ref (ref);
+ALTER TABLE llx_story_story ADD INDEX idx_story_story_status (status);
 -- END MODULEBUILDER INDEXES
 
 --ALTER TABLE llx_story_story ADD UNIQUE INDEX uk_story_story_fieldxy(fieldx, fieldy);

@@ -1,4 +1,4 @@
--- Copyright (C) 2022 SuperAdmin
+-- Copyright (C) ---Put here your own copyright and developer email---
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,9 +18,12 @@ CREATE TABLE llx_story_story(
 	-- BEGIN MODULEBUILDER FIELDS
 	rowid integer AUTO_INCREMENT PRIMARY KEY NOT NULL, 
 	ref varchar(128) DEFAULT '(PROV)' NOT NULL, 
-	description text NOT NULL, 
-	title varchar(255) NOT NULL, 
-	jobrules text NOT NULL, 
-	accepttest text NOT NULL
+	label varchar(255), 
+	description text, 
+	date_creation datetime NOT NULL, 
+	tms timestamp, 
+	fk_user_creat integer NOT NULL, 
+	fk_user_modif integer, 
+	status smallint NOT NULL
 	-- END MODULEBUILDER FIELDS
 ) ENGINE=innodb;

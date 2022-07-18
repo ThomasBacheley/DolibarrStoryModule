@@ -63,13 +63,13 @@ class modStory extends DolibarrModules
 		$this->name = preg_replace('/^mod/i', '', get_class($this));
 
 		// Module description, used if translation string 'ModuleStoryDesc' not found (Story is name of module).
-		$this->description = "StoryDescription";
+		$this->description = "Module pour créer des story";
 		// Used only if file README.md and README-LL.md not found.
-		$this->descriptionlong = "StoryDescription";
+		$this->descriptionlong = "Module pour créer des story";
 
 		// Author
-		$this->editor_name = 'Editor name';
-		$this->editor_url = 'https://www.example.com';
+		$this->editor_name = 'Thomas Bacheley';
+		$this->editor_url = 'http://yweelon.fr/';
 
 		// Possible values for version are: 'development', 'experimental', 'dolibarr', 'dolibarr_deprecated' or a version string like 'x.y.z'
 		$this->version = '1.0';
@@ -286,6 +286,7 @@ class modStory extends DolibarrModules
 		$r = 0;
 		// Add here entries to declare new menus
 		/* BEGIN MODULEBUILDER TOPMENU */
+		//pour le menu
 		$this->menu[$r++] = array(
 			'fk_menu'=>'', // '' if this is a top menu. For left menu, use 'fk_mainmenu=xxx' or 'fk_mainmenu=xxx,fk_leftmenu=yyy' where xxx is mainmenucode and yyy is a leftmenucode
 			'type'=>'top', // This is a Top menu entry

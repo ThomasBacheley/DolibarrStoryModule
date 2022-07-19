@@ -107,7 +107,7 @@ class modStory extends DolibarrModules
 			'theme' => 0,
 			// Set this to relative path of css file if module has its own css file
 			'css' => array(
-				//    '/story/css/story.css.php',
+                // '/story/css/story.css.php',
 			),
 			// Set this to relative path of js file if module must load a js on all pages
 			'js' => array(
@@ -378,6 +378,26 @@ class modStory extends DolibarrModules
             'mainmenu'=>'story',
             'leftmenu'=>'story_story',
             'url'=>'/story/story_card.php?action=create',
+            // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
+            'langs'=>'story@story',
+            'position'=>1100+$r,
+            // Define condition to show or hide menu entry. Use '$conf->story->enabled' if entry must be visible if module is enabled. Use '$leftmenu==\'system\'' to show if leftmenu system is selected.
+            'enabled'=>'$conf->story->enabled',
+            // Use 'perms'=>'$user->rights->story->level1->level2' if you want your menu with a permission rules
+            'perms'=>'1',
+            'target'=>'',
+            // 0=Menu for internal users, 1=external users, 2=both
+            'user'=>2
+        );
+        $this->menu[$r++]=array(
+            // '' if this is a top menu. For left menu, use 'fk_mainmenu=xxx' or 'fk_mainmenu=xxx,fk_leftmenu=yyy' where xxx is mainmenucode and yyy is a leftmenucode
+            'fk_menu'=>'fk_mainmenu=story,fk_leftmenu=story_story',
+            // This is a Left menu entry
+            'type'=>'left',
+            'titre'=>'Mes Story',
+            'mainmenu'=>'story',
+            'leftmenu'=>'story_story',
+            'url'=>'/story/my_storylist.php',
             // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
             'langs'=>'story@story',
             'position'=>1100+$r,
